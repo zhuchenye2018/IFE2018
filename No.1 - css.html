@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0">
+    <title>No.1 - 制作一个简单的菜单动画效果</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            font-size:20px;
+        }
+        .info{
+            width: 100px;
+            height: 50px;
+            margin:100px auto 0;
+            text-align:center;
+            line-height: 50px;
+            -webkit-transition: color 1s;
+            -moz-transition: color 1s;
+            -o-transition: color 1s;
+            /*color:#000;*/
+            transition: color 0.5s ease ;
+        }
+        .btn{
+            width: 100px;
+            height: 40px;
+            border:1px solid #ccc;
+            border-radius:10px;
+            margin:100px auto;
+            text-align:center;
+            line-height: 40px;
+            cursor: pointer;
+        }
+        .bar{
+            height: 5px;
+            width:0px;
+            margin:0 auto;
+            background-color: #3366FF;
+            -webkit-transition: width 0.5s linear;
+            -moz-transition: width 0.5s linear;
+            -o-transition: width 0.5s linear;
+            transition: width 0.5s linear;
+        }
+
+
+    </style>
+</head>
+<body>
+ <div class="info">前端学院</div>
+ <div class="bar"></div>
+ <div class="btn">切换样式</div>
+ <script>
+     // function getStyle(obj,attr){
+     //     if(obj.currentStyle){
+     //         return obj.currentStyle[attr];
+     //     }
+     //     else{
+     //         return getComputedStyle(obj,false)[attr];
+     //     }
+     // }
+     var $=function(id){return document.querySelector(id)};
+     void function(){
+         $(".btn").onclick=function(){
+             $(".info").style.color="#3366FF";//js点击事件触发transition
+             $(".bar").style.width=120+"px";
+             setTimeout(function(){
+                 $(".info").style.color="#000";
+                 $(".bar").style.width=0;
+             },500) //延时定时器返回原状态。
+     }}()
+ </script>
+
+</body>
+</html>
